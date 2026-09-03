@@ -4,16 +4,17 @@
   "description": "Agent-native affiliate discovery platform powered by WebMCP",
   "main": "index.html",
   "scripts": {
-    "start": "npx serve .",
-    "deploy": "npx wrangler pages deploy . --project-name=affiliatetresur-webmcp"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
-  "keywords": ["webmcp", "affiliate", "ai-agents", "cloudflare-pages"],
+  "keywords": [
+    "webmcp",
+    "affiliate",
+    "ai-agents"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "serve": "^14.2.0",
     "wrangler": "^3.0.0"
   }
 }
-
-
