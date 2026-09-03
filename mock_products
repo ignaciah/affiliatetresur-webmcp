@@ -1,21 +1,38 @@
- {
-    id: "prod_05",
-    title: "Wireless OBD2 Car Diagnostic Scanner",
-    category: "Automotive",
-    price: 34.99,
-    discount: "20% OFF",
-    rating: 4.6,
-    affiliateUrl: "https://affiliatetresur.com/ref/obd2-scanner",
-    summary: "Bluetooth automotive code reader and real-time engine sensor diagnostic tool."
-  },
-  {
-    id: "prod_06",
-    title: "Dual Dash Cam Front and Rear 4K",
-    category: "Automotive",
-    price: 119.00,
-    discount: "15% OFF",
-    rating: 4.8,
-    affiliateUrl: "https://affiliatetresur.com/ref/dash-cam",
-    summary: "Ultra HD car dash camera with night vision, parking monitor, and loop recording."
+ document.getElementById("searchBtn").addEventListener("click", () => {
+  const keyword = document.getElementById("keywordInput").value.toLowerCase();
+  const maxPrice = parseFloat(document.getElementById("priceInput").value);
+
+  const results = MOCK_PRODUCTS.filter(p => {
+    const matchesKeyword =
+      p.title.toLowerCase().includes(keyword) ||
+      p.category.toLowerCase().includes(keyword);
+
+    const matchesPrice = isNaN(maxPrice) ? true : p.price <= maxPrice;
+
+    return matchesKeyword && matchesPrice;
+  });
+
+  renderResults(results);
+});
+
+function renderResults(items) {
+  const container = document.getElementById("results");
+  container.innerHTML = "";
+
+  if (items.length === 0) {
+    container.innerHTML = "<p>No deals found.</p>";
+    return;
   }
 
+  items.forEach(item => {
+    const card = `
+      <div class="deal-card">
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+        <p><strong>$${item.price}</strong> — ${item.discount} off</p>
+        <a href="${item.affiliateUrl}" target="_blank">View Deal</a>
+      </div>
+    `;
+    container.innerHTML += card;
+  });
+}
