@@ -1,4 +1,4 @@
-// Mock catalog database
+
 const MOCK_PRODUCTS = [
   {
     id: "prod_01",
@@ -39,10 +39,39 @@ const MOCK_PRODUCTS = [
     rating: 4.7,
     affiliateUrl: "https://affiliatetresur.com/ref/desk-frame",
     summary: "Heavy-duty electric sit-stand desk frame with memory height presets."
+  },
+  {
+    id: "prod_05",
+    title: "Wireless OBD2 Car Diagnostic Scanner",
+    category: "Automotive",
+    price: 34.99,
+    discount: "20% OFF",
+    rating: 4.6,
+    affiliateUrl: "https://affiliatetresur.com/ref/obd2-scanner",
+    summary: "Bluetooth automotive code reader and real-time engine sensor diagnostic tool for cars and trucks."
+  },
+  {
+    id: "prod_06",
+    title: "Dual Dash Cam Front and Rear 4K",
+    category: "Automotive",
+    price: 119.00,
+    discount: "15% OFF",
+    rating: 4.8,
+    affiliateUrl: "https://affiliatetresur.com/ref/dash-cam",
+    summary: "Ultra HD car dash camera with night vision, parking monitor, and loop recording."
+  },
+  {
+    id: "prod_07",
+    title: "Portable Car Jump Starter with Air Compressor",
+    category: "Automotive",
+    price: 79.99,
+    discount: "18% OFF",
+    rating: 4.7,
+    affiliateUrl: "https://affiliatetresur.com/ref/jump-starter",
+    summary: "Compact 2000A peak emergency car battery jump box with built-in 150 PSI digital tire inflator."
   }
 ];
 
-// Query catalog matching keywords and max budget
 function queryCatalog(searchTerm = "", maxBudget = null) {
   const term = searchTerm.toLowerCase().trim();
   const budget = maxBudget ? parseFloat(maxBudget) : Infinity;
@@ -57,7 +86,6 @@ function queryCatalog(searchTerm = "", maxBudget = null) {
   });
 }
 
-// Render product list for human users
 function renderDeals(deals) {
   const container = document.getElementById("resultsContainer");
   if (!deals || deals.length === 0) {
@@ -81,7 +109,6 @@ function renderDeals(deals) {
   `).join("");
 }
 
-// Handle declarative form submissions (handles both Agent and Human triggers)
 const dealForm = document.getElementById("dealSearchForm");
 
 dealForm.addEventListener("submit", async (e) => {
@@ -93,7 +120,6 @@ dealForm.addEventListener("submit", async (e) => {
 
   const results = queryCatalog(query, maxPrice);
 
-  // If invoked via WebMCP agent flow, respond with structured JSON
   if (e.agentInvoked) {
     e.respondWith({
       success: true,
@@ -105,11 +131,9 @@ dealForm.addEventListener("submit", async (e) => {
     return;
   }
 
-  // Standard user flow: update UI
   renderDeals(results);
 });
 
-// Programmatic WebMCP Registration fallback (if declarative tags aren't auto-scanned)
 if (typeof navigator !== "undefined" && "modelContext" in navigator) {
   try {
     navigator.modelContext.registerTool({
@@ -130,4 +154,3 @@ if (typeof navigator !== "undefined" && "modelContext" in navigator) {
     console.debug("WebMCP programmatic registration note:", err);
   }
 }
-
