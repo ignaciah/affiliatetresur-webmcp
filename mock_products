@@ -1,0 +1,21 @@
+ {
+    id: "prod_05",
+    title: "Wireless OBD2 Car Diagnostic Scanner",
+    category: "Automotive",
+    price: 34.99,
+    discount: "20% OFF",
+    rating: 4.6,
+    affiliateUrl: "https://affiliatetresur.com/ref/obd2-scanner",
+    summary: "Bluetooth automotive code reader and real-time engine sensor diagnostic tool."
+  },
+  {
+    id: "prod_06",
+    title: "Dual Dash Cam Front and Rear 4K",
+    category: "Automotive",
+    price: 119.00,
+    discount: "15% OFF",
+    rating: 4.8,
+    affiliateUrl: "https://affiliatetresur.com/ref/dash-cam",
+    summary: "Ultra HD car dash camera with night vision, parking monitor, and loop recording."
+  }
+
