@@ -1,24 +1,8 @@
-
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "affiliatetresur-webmcp",
   "compatibility_date": "2024-09-01",
   "assets": {
     "directory": "."
   }
-}
-
-{
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "affiliatetresur-webmcp",
-  "main": "app.js",
-  "compatibility_date": "2024-09-01",
-  "assets": {
-    "directory": "."
-  },
-  "routes": [
-    {
-      "pattern": "affiliatetresur.com/*",
-      "custom_domain": true
-    }
-  ]
 }
