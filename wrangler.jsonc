@@ -1,5 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/master/packages/wrangler/config-schema.json",
   "name": "affiliatetresur-webmcp",
   "compatibility_date": "2024-09-01",
   "assets": {
